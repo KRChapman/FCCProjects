@@ -1,0 +1,177 @@
+* {
+/*     border: 1px solid red !important; */
+}
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+}
+/*  max-width: 1200px;
+	   width: 100%;*/
+	   /*  when it reaches 300px it will do background blue also min-width: 300px would cause
+it to turn blue when OVER 300px;*/
+ @media only screen and (max-width: 300px){
+	.row {/*p*/
+		background-color: blue;
+	}
+}
+
+body { 
+	/*margin: 0 auto;*/
+	margin: 0 auto;
+	background-color: #808080;
+}
+.container-grid {
+      margin: 50 auto;
+     max-width: 500px;
+	   width: 100%;
+	   height: 600px;
+	   background-color: #e6e6e6;
+	   box-shadow: 5px 5px 10px 1px #333333 , inset -1px -2px 10px 1px #b3b3b3;
+		border-radius: 30px;
+	
+}
+.display-box{
+	margin: 0 auto;
+	background-color: #c3c2ab;
+	border: 2px solid #b2b19a;
+	border-radius: 8px;
+}
+button{
+	margin: 8px;
+	width: 60px;
+	height: 60px;
+	background: linear-gradient(to top, #333333, #262626);
+/* 	           left right top bot blur */
+	box-shadow: 0px  4px 0px #2E2C2C,inset -1px -3px 7px 1px #515151;
+	border: 1px solid #333333;
+	border-radius: 11px;
+}
+
+.equal-button{
+	height: 133px;
+	margin-left: 6px;
+	
+}
+.equal-container{
+    margin-right: 22px;
+	padding-right: 80px;
+}
+/*  max-width: 1200px;
+	   width: 100%;*/
+	   
+.bottom-buttons{
+	flex-wrap: warap;
+	padding-left: 53px;
+	padding right: 0px;
+		margin-right: 9px;
+	
+}
+.bottom-buttons > * {
+
+		margin-right: 0px;
+	
+}
+.bottom-buttons :nth-child(-n+2) {
+    margin-right: 8px;
+/* 	border: 1px solid red; */
+}
+.bottom-buttons :nth-child(n+4) {
+
+	margin-top: 5px;
+}
+.bottom-buttons :nth-child(5) {
+    margin-left: 0px;
+	margin-right: 0px;
+}
+
+/* .bottom-buttons:nth-child(-n+1) {
+  
+} */
+
+
+.zero-button{
+	
+	width: 140px;
+	margin-left: 9px;
+	margin-right: 17px;
+}
+.row {
+	
+    width: 85%;
+    margin-bottom: 5px;
+    display: flex;
+	
+	text-align: center;
+	margin: 0 auto;
+	
+}
+.small-row{
+	   width: 65%;
+    margin-bottom: 5px;
+    display: flex;
+	
+	text-align: center;
+	margin: 0 auto;
+}
+
+.col-1 {
+    width: 8.33%;
+	
+}
+
+.col-2 {
+    width: 16.66%;
+	display: inline-block;
+}
+
+.col-3 {
+    width: 25%;
+	
+
+}
+
+.col-4 {
+    width: 33.33%;
+	
+}
+
+.col-5 {
+    width: 41.66%;
+}
+
+.col-6 {
+    width: 50%;
+}
+
+.col-7 {
+    width: 58.33%;
+}
+
+.col-8 {
+    width: 66.66%;
+}
+
+.col-9 {
+    width: 75%;
+}
+
+.col-10 {
+    width: 83.33%;
+}
+
+.col-11 {
+    width: 91.66%;
+}
+
+.col-12 {
+    width: 100%;
+	
+}
+
+button{
+	
+	padding: 20px;
+}

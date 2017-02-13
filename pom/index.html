@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <title>Pomodoro</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="timer">
+    <div class="controls">
+<!--          got the basic layout from project I did for javascript30 -->
+         <form name="customForm" id="custom">
+        <input type="text"  name="minutes" placeholder="Enter Minutes">
+        <input type="text" name="seconds" placeholder="Enter Seconds">
+      </form>
+      <button data-time="20" class="time_button">20 Secs</button>
+      <button data-time="300" class="time_button">5 min</button>
+      <button data-time="900" class="time_button">15 min</button>
+      <button data-time="1500" class="time_button">25 min</button>
+      <button data-time="3600" class="time_button">1 hour</button>
+   
+    </div>
+    <div class="display">
+      <h1 class="time-left"></h1>
+      <p class="display_done "></p>
+    </div>
+    <a href="https://github.com/KRChapman/FCCProjects.git">GitHubLink</a>
+  </div>
+
+  <audio src="boom.wav"></audio>
+
+  <script src="scripts.js"></script>
+</body>
+</html>

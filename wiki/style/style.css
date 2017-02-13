@@ -1,0 +1,104 @@
+*{
+  -webkit-box-sizing: border-box; 
+-moz-box-sizing: border-box;  
+ box-sizing: border-box;  
+}
+
+
+#form-container{
+	
+
+margin: 5% auto;
+margin-bottom: 15px;
+	display: block;
+text-align: center;
+}
+
+body{
+	padding: 0;
+	margin: 0;
+background: white;
+
+}
+#wiki-Search{
+	
+	margin: 0 10px 0 10px;
+	border: 1px solid #9e9e9e;
+	
+	box-shadow: inset 0px 1px 1px rgba(0,0,0,.095);
+	transition: font-size 40px border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+.results{
+		
+		display: flex;
+		justify-content:center;
+		align-items:center;
+		
+}
+
+ul {
+	transition: font-size 40px border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+	color: black;
+
+    margin: 0 auto;
+	padding: 0;
+	list-style-type: none;
+	
+
+
+}
+
+li{
+	border-left: 2px solid #00c853;
+	padding: 25 25 0 25;
+	padding-left: 45px;
+
+
+
+	width: 500px;
+	margin: 65px;
+  
+  transition: ease-in-out .45s
+
+	
+}
+.litrans{
+    transition: ease-in-out 1.55s,box-shadow ease-in-out .15s;
+}
+li:hover{
+	border-left: 2px solid #ff5252;
+    
+}
+
+
+a{
+	font-size: 20px;
+	text-align: center;
+	display: block;
+
+	transition: font-size .12s;
+}
+
+
+
+.top{
+	
+	height: 120px;
+	margin: 0;
+	background:  #4caf50;
+}
+
+.larger-link{
+    
+	font-size: 28px;
+
+}
+.change{
+	display: none;
+}
+
+
+label{
+
+
+}
