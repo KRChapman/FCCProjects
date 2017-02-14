@@ -1,6 +1,6 @@
 
 (function startGame(){
-    // var 
+
 	var board = {
 		top: [],
 		middleHorizontal: [],
@@ -43,7 +43,7 @@ function createXndO(x,y,gamepiece){
 }
 
 function drawGamePiece(){
-	
+
 }
 
 function createBoard(ctx){
@@ -75,18 +75,12 @@ ctx.fillStyle = 'green';
 	var clickedY;
 	var ClickedX;
 	console.log(event.offsetX);
-	console.log(ctx);
-    // ctx.fillRect(event.offsetX,267 ,385 ,2);
+
 
 //add draw gamePiece function
 //ADD CALL TO AI FUNCTION unbeatableAI();
 }
 
-// function create
 
-// window.onclick = function(){
-// alert('hi');
-
-// }
 
 
