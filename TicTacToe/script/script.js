@@ -29,9 +29,9 @@ canvasClick(canvas,board);
 
 function canvasClick(canvas,board){
 
-canvas.addEventListener('click', function(event,board){
-							squareClicked(this,event);
-							console.log(board);
+canvas.addEventListener('click', function(event){
+							squareClicked(this,event,board);
+							// console.log(this);
 						});
 
 }
@@ -43,7 +43,54 @@ function createXndO(x,y,gamepiece){
 
 }
 
-function processClick(){
+function processClick(x,y,gamepiece){
+var	verticleOne = 133;
+var verticletwo = 266;
+var horrizontalOne = 133;
+var horrizontalTwo = 266;
+// var GamepieceX
+// var GamepieceY
+
+var locSmall = 72;
+var locMid = 206;
+var locLarge = 340;
+
+
+
+if (x < verticleOne && y < horrizontalOne){
+
+} 
+else if (x < verticletwo && y < horrizontalOne){
+	x = locSmall
+	 y = locMid  
+}
+
+else if (x > verticletwo && y < horrizontalOne){
+
+
+} 
+
+
+else if (x < verticleOne && y < horrizontalTwo){
+
+}
+x = 206
+else if (x < verticletwo && y < horrizontalTwo){
+	
+}
+else if (x > verticletwo && y < horrizontalTwo){
+
+}
+
+else if (x < verticleOne && y > horrizontalTwo) {
+
+}
+else if (x < horrizontalTwo && y > horrizontalTwo) {
+
+}
+else if (x > horrizontalTwo && y > horrizontalTwo) {
+
+}
 
 }
 
@@ -73,13 +120,14 @@ function unbeatableAI() {
 
 }
 
-function squareClicked(place,event){
+function squareClicked(place,event,board){
 		var canvas = document.getElementById('canvas');
 var ctx = canvas.getContext('2d');
 ctx.fillStyle = 'green';
 	var clickedY;
 	var ClickedX;
-	console.log(event.offsetX);
+	console.log('x'+ event.offsetX);
+	console.log("y"+event.offsetY);
 
 
 //add draw gamePiece function

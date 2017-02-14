@@ -7,16 +7,49 @@ if x human goes first call canvasclick function and add x to human gamepiece fla
 else computer goes first initiate unbeatableAIfunction and add x to computer and o to human
 
 unbeatableAIfunction:
+take gamepiece
 computer goes for middle square if unocupied 
 
 computer will go in next available diagonal square starting right moving clockwise
 
 UnbeatableAIthat will play for win or block
 
+Processclick
+take in x y value and board and gamepiece
+verticleOne = 133
+verticletwo = 266
+horrizontalOne = 133
+horrizontalTwo = 266
+var GamepieceX
+var GamepieceY
+
+var locSmall = 72;
+var locMid = 206;
+var locLarge = 340
+
+
+
+if x < verticleOne && y < horrizontalOne 
+else if x < verticletwo && y < horrizontalOne 
+x = locSmall locMid  = 72
+else if x > verticletwo && y < horrizontalOne 
+x = 206
+
+else if x < verticleOne && y < horrizontalTwo 
+x = 206
+else if x < verticletwo && y < horrizontalTwo 
+else if x > verticletwo && y < horrizontalTwo 
+
+else if x < verticleOne && y > horrizontalTwo 
+else if x < horrizontalTwo && y > horrizontalTwo 
+else if x > horrizontalTwo && y > horrizontalTwo 
+
+
+
 
 drawgamePieceFunction:
 take in x and y coordinate and the gamepiece value
-create x or o object
+create if x or if o object
 a
 draw it the the coorosponding coordinates
 
