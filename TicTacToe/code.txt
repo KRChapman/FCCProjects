@@ -1,0 +1,32 @@
+pick game piece function
+listen for event on x and o
+hide display of x and o from dom
+(remove event nescesarey?)
+get value of clicked
+if x human goes first call canvasclick function and add x to human gamepiece flag and o to computer
+else computer goes first initiate unbeatableAIfunction and add x to computer and o to human
+
+unbeatableAIfunction:
+computer goes for middle square if unocupied 
+
+computer will go in next available diagonal square starting right moving clockwise
+
+UnbeatableAIthat will play for win or block
+
+
+drawgamePieceFunction:
+take in x and y coordinate and the gamepiece value
+create x or o object
+a
+draw it the the coorosponding coordinates
+
+
+
+
+get the x and y coord of click
+
+pass x,y to draw in box function based on x,y parameters save in grid object
+
+
+
+if
