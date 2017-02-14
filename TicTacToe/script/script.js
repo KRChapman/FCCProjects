@@ -22,15 +22,16 @@
 var canvas = document.getElementById('canvas');
 var ctx = canvas.getContext('2d');
 createBoard(ctx);
-canvasClick(canvas);
+canvasClick(canvas,board);
 
 
 })(this);
 
-function canvasClick(canvas){
+function canvasClick(canvas,board){
 
-canvas.addEventListener('click', function(event){
+canvas.addEventListener('click', function(event,board){
 							squareClicked(this,event);
+							console.log(board);
 						});
 
 }
@@ -39,6 +40,10 @@ function createXndO(x,y,gamepiece){
 	this.x = x;
 	this.y = y;
 	this.gamepiece = gamepiece;
+
+}
+
+function processClick(){
 
 }
 
