@@ -26,3 +26,8 @@ ul{
 li{
 
 }
+
+.hide_li{
+	display: none;
+	
+}
