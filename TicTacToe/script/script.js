@@ -11,8 +11,8 @@ var board = [[],[],[]];
 var canvas = document.getElementById('canvas');
 var ctx = canvas.getContext('2d');
 createBoard(ctx);
-var playerPlaySymbol = 'o';
-var computerPlaySymbol = 'x';
+var playerSymbol;
+var computerSymbol;
 pickGamePiece();
 //put in x o selector function
 
@@ -22,11 +22,13 @@ pickGamePiece();
 
 
 
-function addCanvasClick(playSymbol){
-	
+function addCanvasClick(player,computer){
+
+	playerSymbol = playerSymbol;
+	computerSymbol = computer;
 
 canvas.addEventListener('click', function(event){
-							squareClicked(this,event,playSymbol);
+							squareClicked(this,event);
 					
 						
 
@@ -34,14 +36,14 @@ canvas.addEventListener('click', function(event){
 
 }
 
-function createXndO(x,y,playSymbol){
+function createXndO(x,y,gameSymbol){
 	this.x = x;
 	this.y = y;
-	this.gamepiece = playSymbol;
+	this.gamepiece = gameSymbol;
 
 }
 
-function processClick(x,y,playSymbol){
+function processClick(x,y,playerSymbol){
 	var	verticleOne = 133;
 	var verticletwo = 266;
 	var horrizontalOne = 133;
@@ -121,8 +123,8 @@ function processClick(x,y,playSymbol){
 		col = 2;
 	}
 
-	var gamePiece = new createXndO(x,y,playSymbol);
-	loadBoard(row,col,gamePiece);
+	
+	loadBoard(row,col,x,y,playerSymbol);
 	// top = 'top';
 	// piece = board[+top+];
 	// 	console.log(piece);
@@ -136,14 +138,15 @@ function processClick(x,y,playSymbol){
 		// board.push([gamePiece]);
 	// board[0][0]p
 	
-    function loadBoard(row,col,gamePiece){
-    	board[row][col] = gamePiece;
-	
-    	console.log('r',board);
-    }
+  
 }
 
+function loadBoard(row,col,x,y,gameSymbol){
+	var gamePiece = new createXndO(x,y,gameSymbol);
+	board[row][col] = gamePiece;
 
+	console.log('r',board);
+}
 
 function drawGamePiece(){
 
@@ -155,19 +158,25 @@ function pickGamePiece(){
 
 	for (let i = 1; i < li.length; i++) {
 		li[i].addEventListener('click', function(event){
-										var playSymbol = this.textContent;
-										
+										var chosenSymbol = this.textContent;
+										var player;
+										var computer;
 										console.log(event);	
-										if (playSymbol === 'X'){
+										if (chosenSymbol === 'X'){
 											ul.innerHTML = '<li></li>';
-											addCanvasClick(playSymbol);
+											player = "X";
+											computer = 'O';
+											addCanvasClick(player,computer);
 
 											// ul.classList.add("hide_li");
 										}
 										else{
+											player = 'O';
+											computer = 'X';
 
-											unbeatableAI('X');
-
+											ul.innerHTML = '<li></li>';
+											unbeatableAI(computer);
+											addCanvasClick(player,computer);
 
 										}			
 								});
@@ -199,10 +208,40 @@ ctx.fillStyle = 'white';
 
 function unbeatableAI(computerPlaySymbol) {
 
-Symbol
+	var locSmall = 72;
+	var locMid = 206;
+	var locLarge = 340;
+	var numberofGamePieces = board[0].length + board[1].length + board[2].length;
+	 console.log(numberofGamePieces);
+ 	if ((numberofGamePieces < 2) || (computerPlaySymbol === 'O' && numberofGamePieces <= 3)){
+
+ 		firstMove();
+
+
+
+ 	}
+
+// Symbol
+
+	function firstMove(){
+		if(board[1][1] == null){
+
+			 loadBoard(1,1,206,206,computerPlaySymbol);
+		}
+		else{
+
+			 loadBoard(0,2,x,y,computerPlaySymbol);
+
+		}
+	}
+
+	function secondMove(){
+
+
+	}
 }
 
-function squareClicked(place,event,playSymbol){
+function squareClicked(place,event){
 
 ctx.fillStyle = 'green';
 	var clickedY;
@@ -211,7 +250,8 @@ ctx.fillStyle = 'green';
 	console.log("y"+event.offsetY);
 	console.log(board);
 
-	processClick(event.offsetX,event.offsetY,playSymbol);
+	processClick(event.offsetX,event.offsetY,playerSymbol);
+	unbeatableAI(computerSymbol);
 // processClick( event.offsetX,event.offsetY,gamepiece)
 
 //add draw gamePiece function
