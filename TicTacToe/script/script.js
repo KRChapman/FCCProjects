@@ -24,7 +24,8 @@ pickGamePiece();
 
 function addCanvasClick(player,computer){
 
-	playerSymbol = playerSymbol;
+	playerSymbol = player;
+
 	computerSymbol = computer;
 
 canvas.addEventListener('click', function(event){
@@ -137,16 +138,16 @@ function processClick(x,y,playerSymbol){
 	
 		// board.push([gamePiece]);
 	// board[0][0]p
-	
-  
-}
-
-function loadBoard(row,col,x,y,gameSymbol){
+	function loadBoard(row,col,x,y,gameSymbol){
 	var gamePiece = new createXndO(x,y,gameSymbol);
 	board[row][col] = gamePiece;
 
 	console.log('r',board);
+    }
+
+  
 }
+
 
 function drawGamePiece(){
 
@@ -161,7 +162,7 @@ function pickGamePiece(){
 										var chosenSymbol = this.textContent;
 										var player;
 										var computer;
-										console.log(event);	
+				
 										if (chosenSymbol === 'X'){
 											ul.innerHTML = '<li></li>';
 											player = "X";
@@ -208,34 +209,176 @@ ctx.fillStyle = 'white';
 
 function unbeatableAI(computerPlaySymbol) {
 
-	var locSmall = 72;
-	var locMid = 206;
-	var locLarge = 340;
-	var numberofGamePieces = board[0].length + board[1].length + board[2].length;
-	 console.log(numberofGamePieces);
- 	if ((numberofGamePieces < 2) || (computerPlaySymbol === 'O' && numberofGamePieces <= 3)){
+	//maybe an object  '0' : 72
+	var locSmall = { "0": 72};//0
+	var locMid = { "1": 206};//1
+	var locLarge = { "2": 340};//2
+	// var numberofGamePieces = board[0].length + board[1].length + board[2].length;
+	
+ 	// if ((numberofGamePieces < 2) || (computerPlaySymbol === 'O' && numberofGamePieces <= 3)){
 
- 		firstMove();
+ 	
 
 
 
- 	}
+ 	// }
+
+ 	 if (board[1][1] == null || board[2][0] == null){
+ 	 	    var moveToMake = checkForWinOrBlock();
+ 	 	    console.log('gg'+moveToMake);
+ 	 		if (moveToMake != null ){
+	 	 		  processClick(moveToMake[0],moveToMake[1],computerPlaySymbol);
+
+	 	 	}
+	 	 	else{
+	 	 		firstTwoMoves();
+	 	 	}
+// || moveToMake.length != 0
+ 	 			
+ 	 }
+ 	 else{
+ 	 	// var moveToMake = [];
+	 	 	var moveToMake = checkForWinOrBlock();
+	 	 	console.log('bb'+moveToMake);
+	 	 	if (moveToMake == null ){
+	 	 		board[2][2] == null ?  processClick(locLarge["2"],locLarge["2"],computerPlaySymbol) : processClick(locSmall["0"],locSmall["0"],computerPlaySymbol);
+
+	 	 	}
+
+	 	 	else{
+	 	 		processClick(moveToMake[0],moveToMake[1],computerPlaySymbol);
+	 	 	}
+
+ 	 }
+
+
+
+
+ 	// var moveToMake = checkForWinOrBlock();
+  //    processClick(moveToMake)
+
+
+
+
 
 // Symbol
 
-	function firstMove(){
-		if(board[1][1] == null){
+	// function firstMove(){
+	// 	if(board[1][1] == null){
 
-			 loadBoard(1,1,206,206,computerPlaySymbol);
-		}
-		else{
+	// 		 processClick(locMid["1"],locMid["1"],computerPlaySymbol);
+	// 	}
+	// 	else{
 
-			 loadBoard(0,2,x,y,computerPlaySymbol);
+	// 		 processClick(locSmall["0"],locLarge["2"],computerPlaySymbol);
 
-		}
+	// 	}
+	// }
+
+	function firstTwoMoves(){
+			 	board[1][1] == null ?  processClick(locMid["1"],locMid["1"],computerPlaySymbol) : processClick(locLarge["2"],locSmall["0"],computerPlaySymbol);
+
 	}
 
-	function secondMove(){
+
+	function checkForWinOrBlock(){
+		var BlockSquare = [];
+		var WinSquare = [];
+		var countComputer = 0;
+		var countPlayer = 0;
+		for (let i = 0; i < board.length; i++) {
+
+			for (let j = 0; j < board[i].length; j++) {
+				
+
+				if (board[i] === null){
+					let row = (i).toString();
+					let col = (j).toString();
+					WinSquare[0] = row;
+					WinSquare[1] = col;
+
+					if (countPlayer < 2){
+					    BlockSquare[0] = row;
+						BlockSquare[1] = col;
+
+
+					}
+		
+
+				}
+
+
+				if (board[j] === computerPlaySymbol){
+
+					countComputer++;
+				}
+
+				if  ( board[j] === playerSymbol){
+					countPlayer++;
+				}
+				
+
+				if(countComputer === 2){
+					return WinSquare;
+				}
+			 
+			};
+		 countComputer = 0;
+		 countPlayer = 0;
+		 WinSquare.length = 0;
+
+		
+		};
+		 if(countPlayer === 2){
+					return BlockSquare;
+				}
+		// var index = 0;
+		// for (let i = 0; i < board.length; i++) {
+			
+
+		
+		// 		board[i][index]
+
+		// 		if (i === 2){
+		// 			i = 0;
+		// 			index = 1;
+		// 		}
+
+
+
+
+
+		// 		if (Things[i] === null){
+
+		// 			emptySpot[0] = i;
+		// 			emptySpot[1] = j;
+
+		// 		}
+
+		// 		if (board[i] === 'X' || board[i] === "O"){
+
+		// 			count++;
+		// 		}
+				
+
+		// 		if(board[i].indexOf(computerPlaySymbol) !== -1 && count === 2){
+		// 			return emptySpot;
+		// 		}
+
+
+
+
+
+
+
+		// 		if (index === 2 && i == 2){
+
+
+		// 		}
+
+				
+		// 		// for (let j = 0; ij< board[j].length; j++) {
+		// };
 
 
 	}
@@ -246,9 +389,9 @@ function squareClicked(place,event){
 ctx.fillStyle = 'green';
 	var clickedY;
 	var ClickedX;
-	console.log('x'+ event.offsetX);
-	console.log("y"+event.offsetY);
-	console.log(board);
+	// console.log('x'+ event.offsetX);
+	// console.log("y"+event.offsetY);
+	// console.log(board);
 
 	processClick(event.offsetX,event.offsetY,playerSymbol);
 	unbeatableAI(computerSymbol);

@@ -18,6 +18,8 @@ first move function
 look for win or block
 if middle unocupied go there 
 else	
+look for enemy piece and go in last or first part ofthe colum
+realative to enemy
 	
 move function
 check for block or win
@@ -50,3 +52,41 @@ pass x,y to draw in box function based on x,y parameters save in grid object
 
 
 if
+
+
+
+
+
+board.length
+
+ boar[i].length
+	
+
+	if
+
+
+
+i = 0    i < board.length
+
+
+board[i][0]
+
+
+i = 0
+
+board[i][1]
+
+board[i][2]
+
+
+
+
+diagnol left down
+board[0][0]
+     [1][1]  
+     [2][2]
+
+right down
+board[0][2]
+     [1][1]
+     [2][0]
