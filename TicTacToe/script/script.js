@@ -1,7 +1,7 @@
 "use strict";
 (function startGame(){
 
-var board = [[],[],[]];
+var board = [[null,null,null],[null,null,null],[null,null,null]];
 
 
 
@@ -141,16 +141,26 @@ function processClick(x,y,playerSymbol){
 	function loadBoard(row,col,x,y,gameSymbol){
 	var gamePiece = new createXndO(x,y,gameSymbol);
 	board[row][col] = gamePiece;
-
+	  drawGamePiece(gamePiece);
 	console.log('r',board);
     }
 
-  
+
 }
 
 
-function drawGamePiece(){
+function drawGamePiece(gamePiece){
+// ctx.fillRect(0,0,canvas.width,canvas.height);
 
+ctx.fillStyle = 'green';
+	console.log('dd'+gamePiece.x);
+// 	ctx.beginPath();
+// ctx.moveTo(gamePiece.x,gamePiece.y);
+// ctx.lineTo(gamePiece.x+10, gamePiece.y+10);
+// ctx.stroke();
+    ctx.beginPath();
+    ctx.fillRect(gamePiece.x, gamePiece.y, 2,10 );
+    // ctx.fillRect(267, 10, 2,385);
 }
 
 function pickGamePiece(){
@@ -210,9 +220,9 @@ ctx.fillStyle = 'white';
 function unbeatableAI(computerPlaySymbol) {
 
 	//maybe an object  '0' : 72
-	var locSmall = { "0": 72};//0
-	var locMid = { "1": 206};//1
-	var locLarge = { "2": 340};//2
+
+	var locMid = { "1": 206, "0": 72, "2": 340};//1
+
 	// var numberofGamePieces = board[0].length + board[1].length + board[2].length;
 	
  	// if ((numberofGamePieces < 2) || (computerPlaySymbol === 'O' && numberofGamePieces <= 3)){
@@ -223,14 +233,14 @@ function unbeatableAI(computerPlaySymbol) {
 
  	// }
 
- 	 if (board[1][1] == null || board[2][0] == null){
+ 	 if (board[1][1] == null || board[0][2] == null ){
  	 	    var moveToMake = checkForWinOrBlock();
  	 	    console.log('gg'+moveToMake);
  	 		if (moveToMake != null ){
-	 	 		  processClick(moveToMake[0],moveToMake[1],computerPlaySymbol);
+	 	 		  processClick(locMid[moveToMake[1]],locMid[moveToMake[0]],computerPlaySymbol);
 
 	 	 	}
-	 	 	else{
+	 	 	else {
 	 	 		firstTwoMoves();
 	 	 	}
 // || moveToMake.length != 0
@@ -241,12 +251,12 @@ function unbeatableAI(computerPlaySymbol) {
 	 	 	var moveToMake = checkForWinOrBlock();
 	 	 	console.log('bb'+moveToMake);
 	 	 	if (moveToMake == null ){
-	 	 		board[2][2] == null ?  processClick(locLarge["2"],locLarge["2"],computerPlaySymbol) : processClick(locSmall["0"],locSmall["0"],computerPlaySymbol);
+	 	 		board[2][2] == null ?  processClick(locMid["2"],locMid["2"],computerPlaySymbol) : processClick(locMid["0"],locMid["0"],computerPlaySymbol);
 
 	 	 	}
 
 	 	 	else{
-	 	 		processClick(moveToMake[0],moveToMake[1],computerPlaySymbol);
+	 	 		processClick(locMid[moveToMake[1]],locMid[moveToMake[0]],computerPlaySymbol);
 	 	 	}
 
  	 }
@@ -276,109 +286,155 @@ function unbeatableAI(computerPlaySymbol) {
 	// }
 
 	function firstTwoMoves(){
-			 	board[1][1] == null ?  processClick(locMid["1"],locMid["1"],computerPlaySymbol) : processClick(locLarge["2"],locSmall["0"],computerPlaySymbol);
+			 	board[1][1] == null ?  processClick(locMid["1"],locMid["1"],computerPlaySymbol) : processClick(locMid["2"],locMid["0"],computerPlaySymbol);
 
 	}
 
 
 	function checkForWinOrBlock(){
-		var BlockSquare = [];
+		var toBlockSqure;
+		var TempBlockSquare = [];
 		var WinSquare = [];
 		var countComputer = 0;
 		var countPlayer = 0;
-		for (let i = 0; i < board.length; i++) {
+		for (var i = 0; i < board.length; i++) {
 
-			for (let j = 0; j < board[i].length; j++) {
+			for (var j = 0; j < board[i].length; j++) {
 				
 
-				if (board[i] === null){
+				if (board[i][j] == null){
 					let row = (i).toString();
 					let col = (j).toString();
 					WinSquare[0] = row;
 					WinSquare[1] = col;
 
-					if (countPlayer < 2){
-					    BlockSquare[0] = row;
-						BlockSquare[1] = col;
+					if (countPlayer <= 2){
+					    TempBlockSquare[0] = row;
+						TempBlockSquare[1] = col;
+						
 
 
 					}
 		
 
 				}
+// .gamepiece
+					if(board[i][j] != null){
+						if (board[i][j].gamepiece === computerPlaySymbol){
+
+							countComputer++;
+						}
+
+						if  ( board[i][j].gamepiece === playerSymbol){
+							countPlayer++;
+						}
+						
+
+					  }
 
 
-				if (board[j] === computerPlaySymbol){
+					if(countComputer >= 2 && board[i].indexOf(null) != -1){
+						return WinSquare;
+					}
 
-					countComputer++;
-				}
-
-				if  ( board[j] === playerSymbol){
-					countPlayer++;
-				}
-				
-
-				if(countComputer === 2){
-					return WinSquare;
-				}
 			 
 			};
+
+						if(countPlayer >= 2 && board[i].indexOf(null) != -1){
+					toBlockSqure === TempBlockSquare;
+				    }
+
+			
 		 countComputer = 0;
-		 countPlayer = 0;
+		 // if (countPlayer == 2) {
+		 	  countPlayer = 0;
+
+		 // };
+		
 		 WinSquare.length = 0;
 
 		
 		};
-		 if(countPlayer === 2){
-					return BlockSquare;
-				}
-		// var index = 0;
-		// for (let i = 0; i < board.length; i++) {
+		var nullcount = 0;
+		var index = 0;
+		for (let i = 0; i <= board.length; i++) {
 			
-
+			// for (let j = 0; j <= index; j++) {
 		
-		// 		board[i][index]
+		
+				// if ((i > 2 ) && i+index <= 6 ){
+				if (i >= 3 && index >= 2){
+					break;
+				}
 
-		// 		if (i === 2){
-		// 			i = 0;
-		// 			index = 1;
-		// 		}
+				if (i == 3 ){
+					i = 0;
+					index++;
+
+						if(countComputer >= 2 && nullcount == 1){
+						return WinSquare;
+					}
+
+						if(countPlayer >= 2 && nullcount == 1){
+					toBlockSqure = TempBlockSquare;
+				    }
+			
+						 countComputer = 0;
+						 // if (countPlayer == 2) {
+						 	  countPlayer = 0;
+
+						 // };
+						
+						 WinSquare.length = 0;
+
+				}
 
 
+				if (board[i][index] == null){
+					let row = (i).toString();
+					let col = (index).toString();
+					WinSquare[0] = row;
+					WinSquare[1] = col;
+
+					if (countPlayer <= 2){
+					    TempBlockSquare[0] = row;
+						TempBlockSquare[1] = col;
+						
 
 
+					}
+		
 
-		// 		if (Things[i] === null){
+				}
+// .gamepiece
+					if(board[i][index] != null){
+						if (board[i][index].gamepiece === computerPlaySymbol){
 
-		// 			emptySpot[0] = i;
-		// 			emptySpot[1] = j;
+							countComputer++;
+						}
 
-		// 		}
+						if  ( board[i][index].gamepiece === playerSymbol){
+							countPlayer++;
+						}
+						
 
-		// 		if (board[i] === 'X' || board[i] === "O"){
+					  }
 
-		// 			count++;
-		// 		}
+					  if (board[i][index] == null){
+					  	nullcount++;
+					  }
+
+
 				
 
-		// 		if(board[i].indexOf(computerPlaySymbol) !== -1 && count === 2){
-		// 			return emptySpot;
-		// 		}
 
+				// };
+		
 
+				// for (let j = 0; ij< board[j].length; j++) {
+		};
 
-
-
-
-
-		// 		if (index === 2 && i == 2){
-
-
-		// 		}
-
-				
-		// 		// for (let j = 0; ij< board[j].length; j++) {
-		// };
+		// if
 
 
 	}
