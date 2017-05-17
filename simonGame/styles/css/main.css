@@ -1,0 +1,180 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+:focus {
+  outline: none; }
+
+::-moz-focus-inner {
+  border: 0; }
+
+html {
+  background-color: #181e21; }
+
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0; }
+
+.container {
+  margin: 75px auto;
+  position: relative;
+  background: #e0e0e0;
+  box-shadow: 0px 1px 10px #bebcbc;
+  width: 500px;
+  height: 500px;
+  border-radius: 100%; }
+
+.simon-game {
+  width: 500px;
+  height: 500px;
+  display: flex;
+  flex-wrap: wrap; }
+
+.simon-button {
+  width: 250px;
+  height: 250px;
+  border: 20px solid;
+  border-color: #e0e0e0; }
+  .simon-button.green {
+    background: linear-gradient(to left, #9be35b, #2dcf34); }
+  .simon-button.red {
+    background: linear-gradient(to left, #e91111, #f5a2a2); }
+  .simon-button.yellow {
+    background: linear-gradient(to left, #fceabb, #f8b500); }
+  .simon-button.blue {
+    background: linear-gradient(to left, #2641ab, #6397cb); }
+  .simon-button.lighten-blue {
+    background: #56a8fb;
+    transition: 0.45s linear all; }
+  .simon-button.lighten-green {
+    background: #b6ea87;
+    transition: 0.45s linear all; }
+  .simon-button.lighten-red {
+    background: #e26e6e;
+    transition: 0.45s linear all; }
+  .simon-button.lighten-yellow {
+    background: #ffe292;
+    transition: 0.45s linear all; }
+
+.game-controls {
+  text-align: center;
+  border-radius: 100%;
+  width: 250px;
+  height: 250px;
+  border: 15px solid #e0e0e0;
+  position: absolute;
+  left: 125px;
+  top: 125px;
+  background: #adbfc6; }
+
+.middle {
+  text-align: center; }
+
+.score {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  border: 2px solid #222;
+  border-radius: 30%;
+  background-color: #470f18; }
+  .score h1 {
+    color: #f1243f;
+    position: relative;
+    bottom: 4px; }
+  .score h3 {
+    position: relative;
+    bottom: 12px;
+    width: 40px;
+    height: 20px; }
+
+.buttons {
+  display: inline-block;
+  position: relative;
+  bottom: 10px;
+  margin: 5px; }
+  .buttons .start-strict-btn {
+    width: 20px;
+    height: 20px;
+    border: 2px solid black;
+    border-radius: 100%;
+    box-shadow: 0px 2px 3px #222;
+    pointer-events: auto;
+    cursor: pointer;
+    background: #0d47a1; }
+  .buttons h3 {
+    width: 40px;
+    height: 20px; }
+
+.indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 100%;
+  border: 2px solid #222;
+  background-color: #32050C;
+  margin: 5px auto; }
+
+.on {
+  background: #fbe208; }
+
+.switch {
+  border: 1px solid black;
+  border-radius: 2px;
+  width: 40px;
+  height: 19px;
+  margin: 0 auto;
+  background: white; }
+
+.switch-btn {
+  width: 19px;
+  height: 16px;
+  display: block;
+  position: relative;
+  top: 1px;
+  background: #3dbfa0;
+  border: 2px solid #e0e0e0;
+  border-radius: 3px; }
+
+.slide {
+  position: relative;
+  left: 19px; }
+
+h6 {
+  display: inline-block;
+  margin: 0px 2px; }
+
+.switchContainer {
+  position: relative;
+  bottom: 20px; }
+
+.unclickable {
+  pointer-events: none; }
+
+.tr {
+  border-top-right-radius: 100%;
+  border-bottom: 10px solid #e0e0e0;
+  border-left: 10px solid #e0e0e0; }
+
+.br {
+  border-bottom-right-radius: 100%;
+  border-top: 10px solid #e0e0e0;
+  border-left: 10px solid #e0e0e0; }
+
+.bl {
+  border-bottom-left-radius: 100%;
+  border-top: 10px solid #e0e0e0;
+  border-right: 10px solid #e0e0e0; }
+
+.tl {
+  border-top-left-radius: 100%;
+  border-bottom: 10px solid #e0e0e0;
+  border-right: 10px solid #e0e0e0; }
+
+/*# sourceMappingURL=main.css.map */

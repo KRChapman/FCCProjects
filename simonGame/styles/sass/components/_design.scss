@@ -1,0 +1,346 @@
+//MAKE BOARDER LIGHT (white) a
+
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+
+		  // border: 1px solid red;
+}
+:focus {outline:none;} ::-moz-focus-inner {border:0;}
+html{
+  // width: 100%;
+  // height: 100%;
+  background-color: $backgroundColor;
+}
+body{
+
+  width: 100%;
+  height: 100%;
+  margin: 0;
+
+
+
+}
+
+.container{
+    margin: 75px auto;
+  // border: 1px solid red;
+    position: relative;
+    background: $whiteGrey;
+
+    box-shadow: 0px 1px 10px $darkerWhiteGrey;
+
+  @include container;
+
+border-radius: 100%
+}
+
+
+.simon-game{
+
+  @include container;
+  // border: 1px solid blue;
+
+  display: flex;
+  flex-wrap: wrap;
+
+// border-top-right-radius: 515px;
+
+
+
+
+}
+
+
+.simon-button{
+  @include simonButtons;
+
+  border: 20px solid;
+
+
+  border-color: $whiteGrey;
+
+// transition: background $transitionTime ease-out;
+// transition: 2s linear all;
+  &.green{
+    // border-bottom: 10px;
+    // border-right: 100px;
+     @include linear-gradient(to left,$gradientGreen, $gradientGreenDark);
+    // transition: $transitionTime linear all;
+   //transition: background 1.9s;
+  //  transition: ease-in $transitionTime;
+  //  transition: $transitionTime ease-out;
+// transition: $transitionTime linear all;
+  }
+  &.red{
+    // border-bottom: 10px;
+    background: linear-gradient(to left, $redList);
+    // transition: $transitionTime linear all;
+
+  //  transition: background 1.9s;
+  // -webkit-transition: background-color $transitionTime ease-out;
+  // transition: $transitionTime ease-out;
+  // transition: ease-in $transitionTime;
+// transition: $transitionTime linear all;
+  }
+  &.yellow{
+    // border-right: 10px;
+    @include linear-gradient(to left, $yelloList);
+    // transition: $transitionTime linear all;
+    //transition: background 1.9s;
+    // -webkit-transition: background-color $transitionTime ease-out;
+    // transition: $transitionTime ease-out;
+    // background-color 2s ease-out;
+    // transition: $transitionTime linear all;
+  }
+
+  &.blue{
+   @include linear-gradient(to left, $blueList);
+  //  transition: $transitionTime linear all;
+   //transition: background 1.9s;
+  //  -webkit-transition: $clickGreen $transitionTime ease-out;
+  //  transition: $transitionTime ease-out;
+// transition: 1s linear all;
+  //  transition: $transitionTime;
+    // transition: $transitionTime linear all;
+
+
+  }
+
+  &.lighten-blue{
+    background: lighten(#0575E6, 20%);
+    transition: $transitionTime linear all;
+    // transition: background $transitionTime ease-out;
+  }
+  &.lighten-green{
+
+  background: lighten(#9be35b, 10%);
+  transition: $transitionTime linear all;
+  // transition: background $transitionTime ease-out;
+  }
+  &.lighten-red{
+  background: lighten($clickRED, 20%);
+  transition: $transitionTime linear all;
+
+  }
+  &.lighten-yellow{
+  background: lighten(#f8b500, 30%);
+  transition: $transitionTime linear all;
+  // transition: background-color $transitionTime ease-in;
+  }
+}
+
+
+
+
+.game-controls{
+    text-align: center;
+
+    border-radius: 100%;
+
+
+  width: 250px;
+  height: 250px;
+  // border: 1px solid purple;
+  border: 15px solid $whiteGrey;
+
+  // margin: 20px auto;
+  position: absolute;
+
+    left: 125px;
+    top: 125px;
+
+    background: $backgroundControls;
+
+
+
+}
+.middle{
+  // display: flex;
+  text-align: center;
+
+}
+.score{
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+
+  border: 2px solid #222;
+  border-radius: 30%;
+
+  background-color: #470f18;
+
+  h1{
+    color: #f1243f;
+    position: relative;
+    bottom: 4px;
+    // margin:20px auto;
+  }
+
+  h3{
+    position: relative;
+    bottom: 12px;
+    width: 40px;
+    height: 20px;
+  }
+}
+
+.buttons{
+  // margin-top: 20px;
+
+  // margin: 0;
+  display: inline-block;
+  position: relative;
+  bottom: 10px;
+  margin: 5px;
+
+
+
+  // display: flex;
+  // width: 100px;
+.start-strict-btn{
+    width: 20px;
+    height: 20px;
+
+    border: 2px solid black;
+    border-radius: 100%;
+    box-shadow: 0px 2px 3px #222;
+    pointer-events: auto;
+  cursor: pointer;
+
+    // background: #546e7a;
+    background: #0d47a1;
+    // #3d4f58;
+
+  }
+
+  h3{
+    width: 40px;
+    height: 20px;
+  }
+
+
+}
+
+
+
+
+
+
+// .pressBtn{
+//   box-shadow: 0 0 0 white;
+//   border: 1px solid black;
+// }
+
+.indicator{
+  width: 8px;
+  height: 8px;
+  // border: 1px solid red;
+  border-radius: 100%;
+  border: 2px solid #222;
+  background-color: #32050C;
+
+
+
+
+
+  // background: yellow;
+  margin: 5px auto;
+}
+
+.on{
+  // background: #ffee58;
+  background: #fbe208;
+
+}
+
+.switch{
+  border: 1px solid black;
+  border-radius: 2px;
+  width:40px;
+  height:19px;
+  margin: 0 auto;
+
+  background: white;
+
+
+
+}
+.switch-btn{
+  width: 19px;
+  height: 16px;
+  display: block;
+  position: relative;
+
+  top: 1px;
+
+  background: rgb(61, 191, 160);
+  border: 2px solid $whiteGrey;
+  border-radius: 3px;
+  // position: absolute;
+  // left: 105px;
+
+}
+
+.slide{
+  position: relative;
+  left: 19px;
+}
+
+h6{
+  display: inline-block;
+  margin: 0px 2px;
+}
+
+.switchContainer{
+  position: relative;
+  bottom: 20px;
+  // $a: $blueList[0];
+  // background:
+}
+
+.unclickable{
+  pointer-events: none;
+
+}
+
+.tr{
+  border-top-right-radius: 100%;
+  border-bottom: $borderBetweenButtons solid $whiteGrey;
+  border-left: $borderBetweenButtons solid $whiteGrey;
+}
+
+
+
+.br{
+border-bottom-right-radius: 100%;
+border-top: $borderBetweenButtons solid $whiteGrey;
+border-left: $borderBetweenButtons solid $whiteGrey;
+}
+
+.bl{
+border-bottom-left-radius: 100%;
+border-top: $borderBetweenButtons solid $whiteGrey;
+border-right: $borderBetweenButtons solid $whiteGrey;
+}
+
+.tl{
+border-top-left-radius: 100%;
+border-bottom: $borderBetweenButtons solid $whiteGrey;
+border-right: $borderBetweenButtons solid $whiteGrey;
+}
+
+
+
+// *{
+//   border: 5px solid $clickBlue;
+//   // border: 1px solid red;
+// }
+//
+// div{
+//   border: 1px solid red;
+// }

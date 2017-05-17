@@ -1,0 +1,55 @@
+// sass function gradient not including webkit and not including fall back color
+//https://www.sitepoint.com/building-linear-gradient-mixin-sass/
+@mixin linear-gradient($direction, $color-stops...){
+
+  // @if flag == true {
+  //   $new-one: nth($color-stops,1);
+  //   $new-two: nth($color-stops,2);
+  //   lighten($new-one, 30%);
+  //   lighten();
+  //
+  // }
+
+// $new-list: nth($yelloList,2);
+  @if is-direction($direction) == false {
+    $color-stops: $direction, $color-stops;
+    $direction: 180deg;
+    // $direction: to left;
+  }
+
+
+  background: linear-gradient($direction, $color-stops);
+
+
+
+
+
+}
+@function is-direction($value) {
+  //sass index() function returns index of $value
+$is-keyword: index((to top, to top right, to right top, to right, to bottom right, to right bottom, to bottom, to bottom left, to left bottom, to left, to left top, to top left), $value);
+// type-of() function checks if 20deg is a number and that it contains a units the functions can parse the number and words on its own
+$is-angle: type-of($value) == 'number' and index('deg' 'grad' 'turn' 'rad', unit($value));
+
+@return $is-keyword or $is-angle;
+}
+
+
+
+@mixin simonButtons {
+  // border: 1px solid $clickRED;
+  width: 250px;
+  height: 250px;
+}
+
+@mixin container {
+
+
+
+
+  width: 500px;
+  height: 500px;
+
+
+
+}
