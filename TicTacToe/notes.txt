@@ -1,0 +1,33 @@
+human
+0  0	
+72 72
+
+human
+1 0
+y206 x72
+
+
+
+comp	comp
+2 0
+y340x72 2 1
+      y340x206
+
+
+
+
+     Row COL	
+board[Y][X]
+
+
+x---------col 2nd
+Y|
+
+ |
+ r
+ o
+ w
+ first	
+ 
+
+	

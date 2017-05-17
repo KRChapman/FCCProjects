@@ -41,6 +41,7 @@ function handleCustomTimeSubmit(athis,e,bothInputs){
 			timer(e,customTime);
 				bothInputs[0].value = '';
 				bothInputs[1].value = '';
+			
 	}
 
 
@@ -56,6 +57,8 @@ function displayTimeleft(seconds){
 }
 
 function timer(e,changeTime){
+	console.log('ee'+e);
+	console.log('changeTime'+changeTime);
 
 	clearInterval(countTime);
 	var h1 = document.querySelector('h1');
