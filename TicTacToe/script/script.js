@@ -43,10 +43,6 @@ var winCombos = [
 
 
 
-
-
-
-
 function addCanvasClick(player,computer){
 
 	playerSymbol = player;
@@ -391,7 +387,7 @@ function easyAi(computerPlaySymbol) {
         indexTwo;
     var locSmall = 72;
     var locMid = 206;
-    var locLarge = 340;
+    let locLarge = 340;
     var t = 'top',
         mH = 'midH',
         b = 'bot',
